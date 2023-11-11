@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import JoblyApi from "../api";
 import CompanyCard from "./CompanyCard";
 
@@ -18,21 +17,21 @@ function CompanyList() {
 
   const [companies, setCompanies] = useState(null);
 
-  useEffect(function getCompaniesOnMount() {
+  useEffect(() => {
     console.debug("CompanyList useEffect getCompaniesOnMount");
     search();
   }, []);
 
   /** Triggered by search form submit; reloads companies. */
-  async function search(name) {
+  const search = async (name) => {
     let companies = await JoblyApi.getCompanies(name);
     setCompanies(companies);
-  }
-
+  };
+  if (!companies) return <p>Loading</p>;
   return (
     <div>
       {companies.length ? (
-        <div>
+        <div className="CompanyList-list">
           {companies.map((c) => (
             <CompanyCard
               key={c.handle}
@@ -44,7 +43,7 @@ function CompanyList() {
           ))}
         </div>
       ) : (
-        <p>Can't find</p>
+        <p className="lead">Sorry, no results were found!</p>
       )}
     </div>
   );

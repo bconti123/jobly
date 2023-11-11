@@ -5,8 +5,8 @@ import SignUp from "../user/Signup";
 import Login from "../user/Login";
 import Profile from "../user/Profile";
 import Home from "../Home";
-import CompanyList from "../Companies/CompanyList";
 import CompanyDetail from "../Companies/CompanyDetail";
+import CompanyList from "../Companies/CompanyList";
 
 const RoutesB = () => {
   return (

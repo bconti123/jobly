@@ -6,25 +6,25 @@ const NavBar = () => {
   const [IsLogged, SetLogged] = useState(false);
   const jsx = IsLogged ? (
     <>
-      <NavLink exact to="/companies">
+      <NavLink to="/companies">
         Companies
       </NavLink>
-      <NavLink exact to="/jobs">
+      <NavLink to="/jobs">
         Jobs
       </NavLink>
-      <NavLink exact to="/profile">
+      <NavLink to="/profile">
         Profile
       </NavLink>
-      <NavLink exact to="/logout">
+      <NavLink to="/logout">
         Log Out
       </NavLink>
     </>
   ) : (
     <>
-      <NavLink exact to="/signup">
+      <NavLink to="/signup">
         Sign Up
       </NavLink>
-      <NavLink exact to="/login">
+      <NavLink to="/login">
         Login
       </NavLink>
     </>
@@ -34,7 +34,7 @@ const NavBar = () => {
     <div>
       <nav>
         
-        <NavLink exact to="/" className="navbar-brand">
+        <NavLink to="/" className="navbar-brand">
           Jobly
         </NavLink>
         {jsx}
