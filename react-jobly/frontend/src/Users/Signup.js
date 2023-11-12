@@ -1,8 +1,9 @@
+import SignUpForm from "../Forms/SignUpForm";
 
 const SignUp = () => {
     return (
         <div>
-            Sing Up
+            <SignUpForm />
         </div>
     )
 }
