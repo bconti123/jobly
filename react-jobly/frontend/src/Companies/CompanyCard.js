@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const CompanyCard = ({ name, description, logoUrl, handle }) => {
     return (
-        <div>
+        <div key={handle}>
           <Link to={`/companies/${handle}`}>
           <h3>{name}</h3>
           <p>{description}</p>

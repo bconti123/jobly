@@ -13,7 +13,6 @@ import CompanyCard from "./CompanyCard";
  */
 
 function CompanyList() {
-  console.debug("CompanyList");
 
   const [companies, setCompanies] = useState(null);
 
