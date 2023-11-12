@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Jobs from "../Jobs/Jobs";
-import SignUp from "../user/Signup";
-import Login from "../user/Login";
-import Profile from "../user/Profile";
+import SignUp from "../Users/Signup";
+import Login from "../Users/Login";
+import Profile from "../Users/Profile";
 import Home from "../Home";
 import CompanyDetail from "../Companies/CompanyDetail";
 import CompanyList from "../Companies/CompanyList";

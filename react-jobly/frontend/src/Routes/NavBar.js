@@ -32,8 +32,7 @@ const NavBar = () => {
 
   return (
     <div>
-      <nav>
-        
+      <nav id="navbar">    
         <NavLink to="/" className="navbar-brand">
           Jobly
         </NavLink>
