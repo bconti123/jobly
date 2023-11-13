@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import './css/NavBar.css'
 
 const NavBar = () => {
-  const [IsLogged, SetLogged] = useState(false);
-  const jsx = IsLogged ? (
+  const [CurrentUser, SetCurrentUser] = useState(false);
+  const jsx = CurrentUser ? (
     <>
       <NavLink to="/companies">
         Companies

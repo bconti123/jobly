@@ -2,22 +2,32 @@ import { useState } from "react";
 
 const useForm = (initialState) => {
   const [forms, setForms] = useState(initialState);
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (fieldName, value) => {
-    setForms((prevForms) => ({
-      ...prevForms,
-      [fieldName]: value,
-    }));
+    setForms((prevForms) => {
+      return {
+        ...prevForms,
+        [fieldName]: value,
+      };
+    });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (submitFunction) => async (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log("Form submitted:", forms);
-    // You might want to send the form data to a server or perform other actions here
+    setLoading(true);
+    try {
+      // Call the provided submitFunction with the form data
+      await submitFunction(forms);
+    } catch (error) {
+      console.error("Error during form submission:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  return { forms, handleInputChange, handleSubmit };
+  return { forms, loading, handleInputChange, handleSubmit };
 };
 
 export default useForm;
+
