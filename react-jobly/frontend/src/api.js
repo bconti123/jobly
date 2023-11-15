@@ -43,32 +43,53 @@ class JoblyApi {
 
   // obviously, you'll add a lot here ...
 
-// Get lists on companies
+  // Get lists on companies
   static async getCompanies(name) {
-    let res = await this.request(`companies`, {name});
+    let res = await this.request(`companies`, { name });
     return res.companies;
   }
   // Get lists on jobs
   static async getJobs() {
-    let res = await this.request('jobs');
+    let res = await this.request("jobs");
     return res.jobs;
   }
   // register
   static async register(username, password, firstName, lastName, email) {
-    let res = await this.request('auth/register', {username, password, firstName, lastName, email}, "post")
+    let res = await this.request(
+      "auth/register",
+      { username, password, firstName, lastName, email },
+      "post"
+    );
     return res.token;
   }
   // login
   static async login(username, password) {
-    let res = await this.request('auth/token', {username, password}, "post");
+    let res = await this.request("auth/token", { username, password }, "post");
     return res.token;
+  }
+  // get user
+  static async getUser(username) {
+    let res = await this.request(`users/${username}`);
+    return res.user;
+  }
+
+  // update user
+  static async updateUser(username, data) {
+    let res = await this.request(`users/${username}`, data, "patch");
+    return res.user;
+  }
+
+  // apply
+  static async applyToJob(username, id) {
+    let res = await this.request(`users/${username}/jobs/${id}`, {}, "post");
+    return res;
   }
 }
 
 export default JoblyApi;
 
 // for now, put token ("testuser" / "password" on class)
-// JoblyApi.token =
-//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-//   "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-//   "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+JoblyApi.token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
+  "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
+  "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";

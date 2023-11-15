@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
-import NavBar from "./Routes/NavBar";
-import RoutesB from "./Routes/Routes";
+import NavBar from "./Routes-nav/NavBar";
+import RoutesB from "./Routes-nav/RoutesB";
 import { BrowserRouter } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
@@ -13,6 +13,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
