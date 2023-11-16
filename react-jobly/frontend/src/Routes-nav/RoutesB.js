@@ -1,13 +1,18 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Jobs from "../Jobs/Jobs";
+// Import pages for routing.
+import HomePage from "../Homepage/Home";
+
+// Users pages for routing.
 import SignUp from "../Users/Signup";
 import Login from "../Users/Login";
-import Profile from "../Users/Profile";
-import CompanyDetail from "../Companies/CompanyDetail";
-import CompanyList from "../Companies/CompanyList";
-import HomePage from "../Homepage/Home";
 import Logout from "../Users/Logout";
+import Profile from "../Users/Profile";
+
+// Companies/Jobs pages for routing.
+import CompanyList from "../Companies/CompanyList";
+import CompanyDetail from "../Companies/CompanyDetail";
+import Jobs from "../Jobs/Jobs";
 
 const RoutesB = () => {
   return (

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./css/NavBar.css";
+import UserContext from "../Users/UserContext";
 
 const NavBar = () => {
-  const [CurrentUser, SetCurrentUser] = useState(false);
-  const jsx = CurrentUser ? (
+  const { currentUser } = useContext(UserContext);
+  const jsx = currentUser ? (
     <>
       <NavLink to="/companies">Companies</NavLink>
       <NavLink to="/jobs">Jobs</NavLink>
