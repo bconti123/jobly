@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./css/NavBar.css";
 import UserContext from "../Users/UserContext";
 
 const NavBar = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
   const jsx = currentUser ? (
     <>
       <NavLink to="/companies">Companies</NavLink>
       <NavLink to="/jobs">Jobs</NavLink>
       <NavLink to="/profile">Profile</NavLink>
-      <NavLink to="/logout">Log Out</NavLink>
+      <Link to="/" onClick={() => setCurrentUser(false)}>
+        Logout
+      </Link>
     </>
   ) : (
     <>

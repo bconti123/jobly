@@ -43,7 +43,7 @@ class JoblyApi {
 
   // obviously, you'll add a lot here ...
 
-  // Get lists on companies
+  // Get companies by name
   static async getCompanies(name) {
     let res = await this.request(`companies`, { name });
     return res.companies;
@@ -51,6 +51,11 @@ class JoblyApi {
   // Get lists on jobs
   static async getJobs() {
     let res = await this.request("jobs");
+    return res.jobs;
+  }
+  // get jobs by title
+  static async getJobsByTitle(title) {
+    let res = await this.request(`jobs`, { title });
     return res.jobs;
   }
   // register

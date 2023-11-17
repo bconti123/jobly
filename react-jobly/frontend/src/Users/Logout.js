@@ -1,7 +1,9 @@
+import React, { useContext } from "react";
+import UserContext from "./UserContext";
+
 const Logout = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("username");
-  window.location = "/";
+  const { setCurrentUser } = useContext(UserContext);
+  setCurrentUser(false);
 };
 
 export default Logout;

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 // import { useLocation } from "react-router-dom";
-// import { UserContext } from "./UserContext";
+import UserContext from "../Users/UserContext";
 
 const HomePage = () => {
   // const { state } = useLocation();
-  // const currentUser = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   // const username = state?.username || '';
   // const greeting = `Hello world! ${username}`;
