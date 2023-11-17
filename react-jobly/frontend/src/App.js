@@ -11,33 +11,28 @@ const App = () => {
   // Use useState to manage token and CurrentUser state
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(false);
-  const [user, setUser] = useState(null);
+  const [username, setUsername] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchCurrentUser = async () => {
-  //     if (token) {
-  //       try {
-  //         // Decode token to get the username
-  //         const { username } = jwtDecode(token);
-  //         // Fetch the user data using the username
-  //         const response = await JoblyApi.getUser(username, token);
-  //         setUser(response.user);
-  //         // Set the currentUser state with the fetched user data
-  //         setCurrentUser(true);
-  //       } catch (err) {
-  //         console.error(err);
-  //       }
-  //     }
-  //   };
-  //   // Call the fetchCurrentUser function when the token state changes
-  //   fetchCurrentUser();
-  // }, [token]);
+  useEffect(() => {
+    if (token) {
+      JoblyApi.token = token;
+      const decodedToken = jwtDecode(token);
+      setUsername(decodedToken.username);
+    }
+  }, [token]);
 
   return (
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider
-          value={{ currentUser, setCurrentUser, token, setToken }}
+          value={{
+            currentUser,
+            setCurrentUser,
+            token,
+            setToken,
+            username,
+            setUsername,
+          }}
         >
           <NavBar />
           <RoutesB />

@@ -4,13 +4,20 @@ import "./css/NavBar.css";
 import UserContext from "../Users/UserContext";
 
 const NavBar = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser, setToken } = useContext(UserContext);
+
   const jsx = currentUser ? (
     <>
       <NavLink to="/companies">Companies</NavLink>
       <NavLink to="/jobs">Jobs</NavLink>
       <NavLink to="/profile">Profile</NavLink>
-      <Link to="/" onClick={() => setCurrentUser(false)}>
+      <Link
+        to="/"
+        onClick={() => {
+          setCurrentUser(false);
+          setToken(null);
+        }}
+      >
         Logout
       </Link>
     </>

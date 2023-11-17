@@ -6,7 +6,6 @@ import HomePage from "../Homepage/Home";
 // Users pages for routing.
 import SignUp from "../Users/Signup";
 import Login from "../Users/Login";
-import Logout from "../Users/Logout";
 import Profile from "../Users/Profile";
 
 // Companies/Jobs pages for routing.
@@ -26,7 +25,6 @@ const RoutesB = () => {
 
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/logout" element={<Logout />} />
 
       <Route path="*" element={<h1>404! ERROR</h1>} />
     </Routes>

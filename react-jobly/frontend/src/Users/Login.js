@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import JoblyApi from "../api";
-import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../Users/UserContext";
 // import useForm from "../Hooks/Form";
@@ -14,7 +13,7 @@ const Login = () => {
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { setCurrentUser, setToken } = useContext(UserContext);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -26,9 +25,7 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await JoblyApi.login(forms.username, forms.password);
-      const decoded = jwtDecode(response);
-      localStorage.setItem("token", response);
-      localStorage.setItem("username", decoded.username);
+      setToken(response);
       setCurrentUser(true);
       navigate("/");
     } catch (error) {

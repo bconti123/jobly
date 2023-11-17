@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import useForm from "../Hooks/Form";
 import JoblyApi from "../api";
 import { useNavigate } from "react-router-dom";
-
+import UserContext from "../Users/UserContext";
 const SignUp = () => {
   const { forms, loading, handleInputChange, handleSubmit } = useForm({
     username: "",
@@ -12,6 +12,7 @@ const SignUp = () => {
     email: "",
   });
   const navigate = useNavigate();
+  const { setCurrentUser, setToken } = useContext(UserContext);
 
   const handleFormSubmit = async () => {
     try {
@@ -23,8 +24,8 @@ const SignUp = () => {
         forms.email
       );
       console.log("Registration successful!", response);
-      localStorage.setItem("token", response);
-      localStorage.setItem("username", forms.username);
+      setToken(response);
+      setCurrentUser(true);
       navigate("/home");
     } catch (error) {
       console.error("Error during registration:", error);
