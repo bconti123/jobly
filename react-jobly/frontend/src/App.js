@@ -9,7 +9,7 @@ import JoblyApi from "./api";
 
 const App = () => {
   // Use useState to manage token and CurrentUser state
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [currentUser, setCurrentUser] = useState(false);
   const [username, setUsername] = useState(null);
 
@@ -18,8 +18,20 @@ const App = () => {
       JoblyApi.token = token;
       const decodedToken = jwtDecode(token);
       setUsername(decodedToken.username);
+      setCurrentUser(true);
     }
-  }, [token]);
+    console.log("App", "token", token, "currentUser", currentUser);
+  }, [token, currentUser]);
+
+  console.debug(
+    "App",
+    "currentUser",
+    currentUser,
+    "token",
+    token,
+    "username",
+    username
+  );
 
   return (
     <div className="App">

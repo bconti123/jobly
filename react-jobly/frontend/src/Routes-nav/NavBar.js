@@ -4,7 +4,8 @@ import "./css/NavBar.css";
 import UserContext from "../Users/UserContext";
 
 const NavBar = () => {
-  const { currentUser, setCurrentUser, setToken } = useContext(UserContext);
+  const { currentUser, setCurrentUser, setToken, setUsername } =
+    useContext(UserContext);
 
   const jsx = currentUser ? (
     <>
@@ -16,6 +17,8 @@ const NavBar = () => {
         onClick={() => {
           setCurrentUser(false);
           setToken(null);
+          setUsername(null);
+          localStorage.removeItem("token");
         }}
       >
         Logout

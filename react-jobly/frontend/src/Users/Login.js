@@ -13,7 +13,7 @@ const Login = () => {
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { setCurrentUser, setToken } = useContext(UserContext);
+  const { setToken } = useContext(UserContext);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -26,7 +26,7 @@ const Login = () => {
     try {
       const response = await JoblyApi.login(forms.username, forms.password);
       setToken(response);
-      setCurrentUser(true);
+      localStorage.setItem("token", response);
       navigate("/");
     } catch (error) {
       console.error("Error during login:", error);

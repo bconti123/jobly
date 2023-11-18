@@ -12,7 +12,7 @@ const SignUp = () => {
     email: "",
   });
   const navigate = useNavigate();
-  const { setCurrentUser, setToken } = useContext(UserContext);
+  const { setToken } = useContext(UserContext);
 
   const handleFormSubmit = async () => {
     try {
@@ -25,7 +25,7 @@ const SignUp = () => {
       );
       console.log("Registration successful!", response);
       setToken(response);
-      setCurrentUser(true);
+      localStorage.setItem("token", response);
       navigate("/home");
     } catch (error) {
       console.error("Error during registration:", error);
