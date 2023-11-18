@@ -23,10 +23,10 @@ const SignUp = () => {
         forms.lastName,
         forms.email
       );
-      console.log("Registration successful!", response);
+      console.debug("Registration successful!", response);
       setToken(response);
       localStorage.setItem("token", response);
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.error("Error during registration:", error);
     }

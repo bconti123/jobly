@@ -42,7 +42,8 @@ const Profile = () => {
     setForms((prevForms) => ({ ...prevForms, [name]: value }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       const { firstName, lastName, email } = forms;
       const response = await JoblyApi.updateUser(username, {
@@ -56,7 +57,7 @@ const Profile = () => {
       console.error("Error during update:", error);
     }
   };
-  console.log(alert);
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -68,7 +69,7 @@ const Profile = () => {
         <input
           type="text"
           name="username"
-          value={forms.username}
+          value={username}
           autoComplete={"username"}
           disabled
         />
