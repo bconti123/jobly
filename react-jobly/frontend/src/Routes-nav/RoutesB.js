@@ -16,17 +16,18 @@ import ProtectedRouter from "./ProtectedRouter";
 import UserContext from "../Users/UserContext";
 
 const RoutesB = () => {
-  const { loading } = React.useContext(UserContext);
+  const { currentUser } = React.useContext(UserContext);
+  // const { loading } = React.useContext(UserContext);
 
-  if (loading) {
-    // You can render a loading state or redirect to a loading page
-    return <p>Loading...</p>;
-  }
+  // if (loading) {
+  //   // You can render a loading state or redirect to a loading page
+  //   return <p>Loading...</p>;
+  // }
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
 
-      <Route element={<ProtectedRouter />}>
+      <Route element={<ProtectedRouter currentUser={currentUser} />}>
         <Route path="/companies" element={<CompanyList />} />
         <Route path="/companies/:handle" element={<CompanyDetail />} />
         <Route path="/jobs" element={<Jobs />} />

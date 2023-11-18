@@ -6,9 +6,9 @@ const JobList = ({ jobs }) => {
       {jobs.map((job) => (
         <div key={job.id}>
           <h3>{job.title}</h3>
-          <p>Salary: </p>
-          <p>Equity: </p>
-          {/* <input type="submit" value={IsApplied ? "Apply" : "Applied"} onClick={"hold"}/> */}
+          {job.companyName && <p>Company: {job.companyName}</p>}
+          <p>Salary: {job.salary === null ? "N/A" : job.salary} </p>
+          <p>Equity: {job.equity === null ? "N/A" : job.equity}</p>
         </div>
       ))}
     </div>

@@ -26,7 +26,7 @@ const useForm = (initialState) => {
     }
   };
 
-  return { forms, loading, handleInputChange, handleSubmit };
+  return { forms, setForms, loading, handleInputChange, handleSubmit };
 };
 
 export default useForm;

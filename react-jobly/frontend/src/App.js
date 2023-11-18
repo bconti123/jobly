@@ -12,6 +12,7 @@ const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [currentUser, setCurrentUser] = useState(false);
   const [username, setUsername] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (token) {
@@ -19,8 +20,9 @@ const App = () => {
       const decodedToken = jwtDecode(token);
       setUsername(decodedToken.username);
       setCurrentUser(true);
+      setLoading(false);
     }
-    console.log("App", "token", token, "currentUser", currentUser);
+    console.debug("App", "token", token, "currentUser", currentUser);
   }, [token, currentUser]);
 
   console.debug(
@@ -32,6 +34,10 @@ const App = () => {
     "username",
     username
   );
+
+  if (loading) {
+    return <p>Loading....</p>;
+  }
 
   return (
     <div className="App">
