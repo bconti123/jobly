@@ -19,14 +19,14 @@ const app = express();
 
 // const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
 
-// const corsOptions = {
-//   origin: FRONTEND_URL,
-//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//   credentials: true,
-//   optionsSuccessStatus: 204,
-// };
+const corsOptions = {
+  origin: FRONTEND_URL,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(morgan("tiny"));

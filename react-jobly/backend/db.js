@@ -7,16 +7,18 @@ let db;
 
 if (process.env.NODE_ENV === "production") {
   db = new Client({
-    host: "tmp" || "/var/run/postgresql",
-    database: getDatabaseUri(),
+    // host: "tmp" || "/var/run/postgresql",
+    // database: getDatabaseUri(),
+    connectionString: getDatabaseUri(),
     ssl: {
       rejectUnauthorized: false,
     },
   });
 } else {
   db = new Client({
-    host: "/tmp" || "/var/run/postgresql",
-    database: getDatabaseUri(),
+    // host: "/tmp" || "/var/run/postgresql",
+    // database: getDatabaseUri(),
+    connectionString: getDatabaseUri(),
   });
 }
 
