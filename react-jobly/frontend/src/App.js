@@ -35,10 +35,6 @@ const App = () => {
     username
   );
 
-  if (loading) {
-    return <p>Loading....</p>;
-  }
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -53,7 +49,7 @@ const App = () => {
           }}
         >
           <NavBar />
-          <RoutesB />
+          {loading === true ? <h1>Loading...</h1> : <RoutesB />}
         </UserContext.Provider>
       </BrowserRouter>
     </div>
