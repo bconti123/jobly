@@ -21,6 +21,8 @@ const App = () => {
       setUsername(decodedToken.username);
       setCurrentUser(true);
       setLoading(false);
+    } else {
+      setLoading(false);
     }
     console.debug("App", "token", token, "currentUser", currentUser);
   }, [token, currentUser]);
