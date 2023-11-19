@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./SearchForm.css";
 
 const SearchForm = ({ searchFor }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,7 +13,7 @@ const SearchForm = ({ searchFor }) => {
     setSearchTerm(event.target.value);
   };
   return (
-    <div>
+    <div className="search-form">
       <form onSubmit={handleSubmit}>
         <input type="text" value={searchTerm} onChange={handleChange} />
         <button type="submit">Search</button>

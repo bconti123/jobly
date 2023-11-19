@@ -1,0 +1,36 @@
+.Jobs {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+  }
+  
+  .Jobs h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .Jobs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .Jobs li {
+    margin-bottom: 10px;
+}
+  
+
+  
+  .Jobs button:hover {
+    background-color: #0056b3;
+  }
+
+
+  
+
+
+

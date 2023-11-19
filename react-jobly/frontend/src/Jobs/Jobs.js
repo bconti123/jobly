@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import JoblyApi from "../api";
 import JobList from "./JobList";
 import SearchForm from "../common/SearchForm";
+import "./Jobs.css";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState(null);
@@ -25,10 +26,21 @@ const Jobs = () => {
 
   if (!jobs) return <p>Loading...</p>;
   return (
-    <div>
+    <div className="Jobs">
       <h1>Jobs</h1>
       <SearchForm searchFor={search} />
-      <JobList jobs={jobs} />
+      <ul>
+        {jobs.map((job) => (
+          <JobList
+            key={job.id}
+            id={job.id}
+            title={job.title}
+            salary={job.salary}
+            equity={job.equity}
+            companyName={job.companyName}
+          />
+        ))}
+      </ul>
     </div>
   );
 };

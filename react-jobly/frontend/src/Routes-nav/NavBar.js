@@ -4,14 +4,15 @@ import "./css/NavBar.css";
 import UserContext from "../Users/UserContext";
 
 const NavBar = () => {
-  const { currentUser, setCurrentUser, setToken, setUsername } =
+  const { currentUser, setCurrentUser, setToken, setUsername, username } =
     useContext(UserContext);
 
   const jsx = currentUser ? (
-    <>
+    <div className="navbar-links">
       <NavLink to="/companies">Companies</NavLink>
       <NavLink to="/jobs">Jobs</NavLink>
       <NavLink to="/profile">Profile</NavLink>
+
       <Link
         to="/"
         onClick={() => {
@@ -21,14 +22,14 @@ const NavBar = () => {
           localStorage.removeItem("token");
         }}
       >
-        Logout
+        (Welcome {username}) - Logout
       </Link>
-    </>
+    </div>
   ) : (
-    <>
+    <div className="navbar-links">
       <NavLink to="/signup">Sign Up</NavLink>
       <NavLink to="/login">Login</NavLink>
-    </>
+    </div>
   );
 
   return (
